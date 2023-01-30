@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Avatar, Chip } from "@mui/material";
 import {
   Face5Outlined,
@@ -6,18 +6,13 @@ import {
   FiberManualRecordOutlined,
 } from "@mui/icons-material";
 import "../styles/Character.css";
+import themeContext from "../context/ThemeContext";
 
-const Character = ({
-  image,
-  name,
-  species,
-  gender,
-  status,
-  location,
-  darkMode,
-}) => {
+const Character = ({ image, name, species, gender, status, location }) => {
+  const theme = useContext(themeContext);
+
   return (
-    <div className={`${darkMode ? "card-light" : "card"}`}>
+    <div className={`${theme ? "card-light" : "card"}`}>
       <Avatar
         className="card-avatar"
         src={image}

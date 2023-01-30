@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Character from "../components/Character";
 import "../styles/Characters.css";
 
-const Characters = ({ darkMode }) => {
+const Characters = () => {
   const [characters, setCharacters] = useState([]);
 
   useEffect(() => {
@@ -22,7 +22,6 @@ const Characters = ({ darkMode }) => {
           species={character.species}
           gender={character.gender}
           status={character.status}
-          darkMode={darkMode}
         />
       ))}
     </div>

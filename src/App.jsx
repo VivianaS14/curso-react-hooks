@@ -1,18 +1,15 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Characters from "./containers/Characters";
+import themeContext from "./context/ThemeContext";
 import Header from "./layout/Header";
 
 const App = () => {
-  const [darkMode, setDarkMode] = useState(false);
-
-  const handleClickTheme = () => {
-    setDarkMode(!darkMode);
-  };
+  const theme = useContext(themeContext);
 
   return (
-    <div className={`${darkMode ? "light" : "app"}`}>
-      <Header handleClickTheme={handleClickTheme} />
-      <Characters darkMode={darkMode} />
+    <div className={`${theme ? "light" : "app"}`}>
+      <Header />
+      <Characters />
     </div>
   );
 };
