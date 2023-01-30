@@ -1,0 +1,50 @@
+.card {
+  max-width: 385px;
+  max-height: 300px;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  background-color: #00337c;
+  border-radius: 15px;
+  transition: 1s ease;
+}
+
+.card-light {
+  max-width: 385px;
+  max-height: 300px;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  background-color: #fff6bd;
+  border-radius: 15px;
+  transition: 1s ease;
+}
+
+.card:hover {
+  background-color: #1c82ad;
+  transform: translateY(-5px);
+}
+
+.card-light:hover {
+  background-color: #e5ba73;
+  transform: translateY(-5px);
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+}
+
+.card-tags {
+  margin: 16px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+}

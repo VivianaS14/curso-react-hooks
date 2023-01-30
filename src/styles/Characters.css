@@ -1,0 +1,20 @@
+.Characters {
+  max-width: 90%;
+  margin: auto;
+  padding: 2rem 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+@media screen and (max-width: 900px) {
+  .Characters {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .Characters {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
