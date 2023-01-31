@@ -1,8 +1,52 @@
 .input-search {
   max-width: 70%;
-  margin: auto;
+  margin: 1rem auto;
   padding: 0.3rem 1rem;
   border-radius: 15px;
+}
 
+.input {
+  font-weight: 500;
+  font-size: 18px;
+  font-family: "Itim", cursive;
+  color: #03c988;
+  background-color: #00337c;
+  box-shadow: 0 0 0.4vw rgba(0, 0, 0, 0.5), 0 0 0 0.15vw transparent;
+  border-radius: 0.4vw;
+  border: none;
+  outline: none;
+  padding: 1rem 2rem;
+  width: 100%;
+  transition: 0.4s;
+}
+
+.input:hover {
+  box-shadow: 0 0 0 0.15vw rgba(135, 207, 235, 0.186);
+}
+
+.input:focus {
+  box-shadow: 0 0 0 0.15vw skyblue;
+}
+
+.input-light {
+  font-weight: 500;
+  font-size: 18px;
+  font-family: "Itim", cursive;
+  color: #00425a;
   background-color: #fff6bd;
+  box-shadow: 0 0 0.4vw rgba(0, 0, 0, 0.5), 0 0 0 0.15vw transparent;
+  border-radius: 0.4vw;
+  border: none;
+  outline: none;
+  padding: 1rem 2rem;
+  width: 100%;
+  transition: 0.4s;
+}
+
+.input-light:hover {
+  box-shadow: 0 0 0 0.15vw rgba(135, 207, 235, 0.186);
+}
+
+.input-light:focus {
+  box-shadow: 0 0 0 0.15vw skyblue;
 }

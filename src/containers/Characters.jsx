@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useReducer, useMemo } from "react";
+import React, { useEffect, useState, useReducer, useMemo, useRef } from "react";
 import Character from "../components/Character";
 import "../styles/Characters.css";
 import { Avatar, Badge } from "@mui/material";
@@ -26,6 +26,7 @@ const Characters = () => {
   const [characters, setCharacters] = useState([]);
   const [state, dispatch] = useReducer(favoriteReducer, initialState);
   const [search, setSearch] = useState([]);
+  const searchInput = useRef(null);
 
   useEffect(() => {
     fetch("https://rickandmortyapi.com/api/character")
@@ -40,8 +41,8 @@ const Characters = () => {
     });
   };
 
-  const handleSearch = (e) => {
-    setSearch(e.target.value);
+  const handleSearch = () => {
+    setSearch(searchInput.current.value);
   };
 
   /* const filteredUsers = characters.filter((user) =>
@@ -75,7 +76,11 @@ const Characters = () => {
           </Badge>
         ))}
       </div>
-      <Search search={search} handleSearch={handleSearch} />
+      <Search
+        search={search}
+        searchInput={searchInput}
+        handleSearch={handleSearch}
+      />
       <div className="Characters">
         {filteredUsers.map((character) => (
           <Character
