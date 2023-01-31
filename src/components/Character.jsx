@@ -1,14 +1,23 @@
 import React, { useContext } from "react";
-import { Avatar, Chip } from "@mui/material";
+import { Avatar, Chip, Button } from "@mui/material";
 import {
   Face5Outlined,
   WcOutlined,
   FiberManualRecordOutlined,
+  Favorite,
 } from "@mui/icons-material";
 import "../styles/Character.css";
 import { ThemeContext } from "../context/ThemeContext";
 
-const Character = ({ image, name, species, gender, status, location }) => {
+const Character = ({
+  image,
+  name,
+  species,
+  gender,
+  status,
+  location,
+  handleFavorite,
+}) => {
   const { darkMode } = useContext(ThemeContext);
 
   return (
@@ -41,6 +50,16 @@ const Character = ({ image, name, species, gender, status, location }) => {
             icon={<FiberManualRecordOutlined />}
           />
         </div>
+        <Button
+          className="btn-favorite"
+          type="button"
+          variant="contained"
+          color="error"
+          onClick={handleFavorite}
+        >
+          <Favorite />
+          Favorite
+        </Button>
       </div>
     </div>
   );

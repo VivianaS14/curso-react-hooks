@@ -7,6 +7,14 @@
   gap: 1rem;
 }
 
+.favorites {
+  max-width: 90%;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 @media screen and (max-width: 900px) {
   .Characters {
     grid-template-columns: repeat(2, 1fr);
