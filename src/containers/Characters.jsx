@@ -1,8 +1,9 @@
-import React, { useEffect, useState, useReducer } from "react";
+import React, { useEffect, useState, useReducer, useMemo } from "react";
 import Character from "../components/Character";
 import "../styles/Characters.css";
 import { Avatar, Badge } from "@mui/material";
 import { Favorite } from "@mui/icons-material";
+import Search from "../layout/Search";
 
 const initialState = {
   favorites: [],
@@ -24,6 +25,7 @@ const favoriteReducer = (state, action) => {
 const Characters = () => {
   const [characters, setCharacters] = useState([]);
   const [state, dispatch] = useReducer(favoriteReducer, initialState);
+  const [search, setSearch] = useState([]);
 
   useEffect(() => {
     fetch("https://rickandmortyapi.com/api/character")
@@ -37,6 +39,23 @@ const Characters = () => {
       payload: favorite,
     });
   };
+
+  const handleSearch = (e) => {
+    setSearch(e.target.value);
+  };
+
+  /* const filteredUsers = characters.filter((user) =>
+    user.name.toLowerCase().includes(search.toString().toLowerCase())
+  ); */
+
+  //usando useMemo para retornar los valores memoizados
+  const filteredUsers = useMemo(
+    () =>
+      characters.filter((user) =>
+        user.name.toLowerCase().includes(search.toString().toLowerCase())
+      ),
+    [characters, search]
+  );
 
   return (
     <>
@@ -56,8 +75,9 @@ const Characters = () => {
           </Badge>
         ))}
       </div>
+      <Search search={search} handleSearch={handleSearch} />
       <div className="Characters">
-        {characters.map((character) => (
+        {filteredUsers.map((character) => (
           <Character
             key={character.id}
             image={character.image}
