@@ -1,4 +1,11 @@
-import React, { useEffect, useState, useReducer, useMemo, useRef } from "react";
+import React, {
+  useEffect,
+  useState,
+  useReducer,
+  useMemo,
+  useRef,
+  useCallback,
+} from "react";
 import Character from "../components/Character";
 import "../styles/Characters.css";
 import { Avatar, Badge } from "@mui/material";
@@ -41,9 +48,14 @@ const Characters = () => {
     });
   };
 
-  const handleSearch = () => {
+  /* const handleSearch = () => {
     setSearch(searchInput.current.value);
-  };
+  }; */
+
+  //usando useCallback
+  const handleSearch = useCallback(() => {
+    setSearch(searchInput.current.value);
+  }, []);
 
   /* const filteredUsers = characters.filter((user) =>
     user.name.toLowerCase().includes(search.toString().toLowerCase())
