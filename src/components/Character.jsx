@@ -6,13 +6,13 @@ import {
   FiberManualRecordOutlined,
 } from "@mui/icons-material";
 import "../styles/Character.css";
-import themeContext from "../context/ThemeContext";
+import { ThemeContext } from "../context/ThemeContext";
 
 const Character = ({ image, name, species, gender, status, location }) => {
-  const theme = useContext(themeContext);
+  const { darkMode } = useContext(ThemeContext);
 
   return (
-    <div className={`${theme ? "card-light" : "card"}`}>
+    <div className={`${darkMode ? "card-light" : "card"}`}>
       <Avatar
         className="card-avatar"
         src={image}

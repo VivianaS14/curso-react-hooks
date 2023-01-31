@@ -1,13 +1,13 @@
 import React, { useContext, useState } from "react";
 import Characters from "./containers/Characters";
-import themeContext from "./context/ThemeContext";
 import Header from "./layout/Header";
+import { ThemeContext } from "./context/ThemeContext";
 
 const App = () => {
-  const theme = useContext(themeContext);
+  const { darkMode } = useContext(ThemeContext);
 
   return (
-    <div className={`${theme ? "light" : "app"}`}>
+    <div className={`${darkMode ? "light" : "app"}`}>
       <Header />
       <Characters />
     </div>
